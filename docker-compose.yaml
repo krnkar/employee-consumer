@@ -1,0 +1,18 @@
+version: "3"
+services:
+  employee-consumer:
+    image: itzmekk/employee-consumer-chain-01
+    networks:
+      - kk-network
+    depends_on:
+      - producer
+ 
+  employee-producer:
+    image: itzmekk/employee-producer-chain-01
+    ports:
+      - "8090:8080"
+    networks:
+      - kk-network 
+
+networks:
+  kk-network:
